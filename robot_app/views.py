@@ -21,4 +21,11 @@ def control_robot(request):
     elif 'left' in request.POST:
         x = 0    
     
+    elif 'speed up' in request.POST:
+        x = 0
+        
+    elif 'speed down' in request.POST:
+        x = 0   
+        
+    
     return render(request, template_name='page2.html')
