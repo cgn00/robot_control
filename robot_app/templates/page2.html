@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<!--Form with multiple submit buttons-->
+<form action="" method="POST">
+    {% csrf_token %}
+	<br> <br>
+	<div class="container text-center">
+		<div class="btn-group-vertical w-25">
+			<button type="submit" name="forward" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 75px; width:130px; border-radius: 10px !important">FORWARD</button>
+		</div>
+	</div>
+
+	
+	<div class="container text-rigth">
+		<div class="btn-group-vertical w-25">
+			<button type="submit" name="right" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 0px; position:absolute; right: -480px; width:130px; border-radius: 10px !important; ">RIGHT</button>
+		</div>
+	</div>
+	<div class="container text-left">
+		<div class="btn-group-vertical w-25">
+			<button type="submit" name="left" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 100px; position:absolute; top: -48px; right: -50px; width:130px; border-radius: 10px !important" >LEFT</button>
+	</div>
+	
+
+	<div class="container text-center">
+		<div class="btn-group-vertical w-25">
+			<button type="submit" name="backward" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 0px; position:absolute; bottom:-120px; width:130px; border-radius: 10px !important" >BACKWARD</button>
+		</div>
+	</div>
+
+	<div class="container text-center">
+		<div class="btn-group-vertical w-25">
+			<button type="submit" name="stop" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 10px; top: 210px;background-color:red; width:130px; border-radius: 10px !important; " >STOP</button>
+		</div>
+	</div>
+
+	
+
+</form>
+
+</body>
+</html>
