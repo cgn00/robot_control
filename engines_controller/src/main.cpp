@@ -6,15 +6,18 @@
 
 const String pins[3] = {"FORWARD", "BACKWARD", "RIGHT"};
 
-//driver's engines
+//driver's engines pins
 const int right_forward[2] = {6, 10}; // pins to move the right engine forward
 const int left_forward[2] = {8, 12}; // pins to move the left engine forward
 const int right_backward[2] = {7, 2}; // pins to move the right engine backward
 const int left_backward[2] = {9, 11}; // pins to move the left engine backward
 const int right_stop[2] = {10, 2}; // pins to stop the right engine
 const int left_stop[2] = {12, 11}; // pins to stop the left engine
-int right_velocity = 0; // this is the values that will control de PWM of the L298 that will drive the mosfet of the right engine
-int left_velocity = 0; // this is the values that will control de PWM of the L298 that will drive the mosfet of the left engine
+const int right_speed_pin = 3;
+const int left_speed_pin = 5; 
+
+int right_velocity = 0; // this is the value that will control de PWM of the L298 that will drive the mosfet of the right engine
+int left_velocity = 0; // this is the value that will control de PWM of the L298 that will drive the mosfet of the left engine
 
 boolean forward_status = LOW;
 boolean backward_status = LOW;
@@ -32,14 +35,15 @@ void stop(void);
 
 void setup() {
   Serial.begin(9600);
-  pinMode(FORWARD, OUTPUT);
-  digitalWrite(FORWARD, forward_status);
 
-  pinMode(BACKWARD, OUTPUT);
-  digitalWrite(BACKWARD, backward_status);
-  
-  pinMode(RIGHT, OUTPUT);
-  digitalWrite(RIGHT, right_status);
+   // config as OUTPUT the pins that drives the relays
+  for (int i = 0; i < 2; i++)
+  {
+    pinMode(right_forward[i], OUTPUT);
+    pinMode(right_backward[i], OUTPUT);
+    pinMode(left_forward[i], OUTPUT);
+    pinMode(left_backward[i], OUTPUT);
+  }
 }
 
 void loop() {
@@ -96,6 +100,10 @@ void turnOffDriver(void)
     digitalWrite(right_backward[i], LOW);
     digitalWrite(left_backward[i], LOW);
   }
+
+  right_velocity = left_velocity = 0;
+
+  analogWrite()
 }
 
 void moveForward(void)
