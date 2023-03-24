@@ -16,8 +16,8 @@ const int left_stop[2] = {12, 11}; // pins to stop the left engine
 const int right_speed_pin = 3; // pin to set the PWM output that will dirve the L298 that control the right engine
 const int left_speed_pin = 5; // pins to set the PWM output that will dirve the L298 that control the right engine
 
-int right_speed = 150; // this is the value that will control de PWM of the L298 that will drive the mosfet of the right engine
-int left_speed = 150; // this is the value that will control de PWM of the L298 that will drive the mosfet of the left engine
+int right_speed = 250; // this is the value that will control de PWM of the L298 that will drive the mosfet of the right engine
+int left_speed = 250; // this is the value that will control de PWM of the L298 that will drive the mosfet of the left engine
 
 // Prototypes
 void turnOffDriver(void);
@@ -48,40 +48,47 @@ void setup() {
 void loop() {
   if (Serial.available() > 0) {
     String data = Serial.readStringUntil('\n');
-    Serial.println(data);
+    
     
     if(data.compareTo("forward") == 0) // if the strings are equals return 0
     {
+      Serial.println("Moving forward");
       moveForward();
     }
 
     else if(data.compareTo("backward") == 0) // if the strings are equals return 0
     {
+      Serial.println("Moving backward");
       moveBackward();
     }
 
     else if(data.compareTo("right") == 0) // if the strings are equals return 0
     {
+      Serial.println("Turning right");
       moveRight();
     }
 
     else if(data.compareTo("left") == 0) // if the strings are equals return 0
     {
+      Serial.println("Turning left");
       moveLeft();
     }
 
     else if(data.compareTo("stop") == 0) // if the strings are equals return 0
     {
+      Serial.println("Stoping");
       stop();
     }
 
     else if(data.compareTo("speed up") == 0) // if the strings are equals return 0
     {
+      Serial.println("Speeding up");
       speedUp();
     }
 
     else if(data.compareTo("speed down") == 0) // if the strings are equals return 0
     {
+      Serial.println("Slowing down");
       speedDown();
     }
 
