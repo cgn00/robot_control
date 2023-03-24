@@ -13,15 +13,11 @@ const int right_backward[2] = {7, 2}; // pins to move the right engine backward
 const int left_backward[2] = {9, 11}; // pins to move the left engine backward
 const int right_stop[2] = {10, 2}; // pins to stop the right engine
 const int left_stop[2] = {12, 11}; // pins to stop the left engine
-const int right_speed_pin = 3;
-const int left_speed_pin = 5; 
+const int right_speed_pin = 3; // pin to set the PWM output that will dirve the L298 that control the right engine
+const int left_speed_pin = 5; // pins to set the PWM output that will dirve the L298 that control the right engine
 
-int right_velocity = 0; // this is the value that will control de PWM of the L298 that will drive the mosfet of the right engine
-int left_velocity = 0; // this is the value that will control de PWM of the L298 that will drive the mosfet of the left engine
-
-boolean forward_status = LOW;
-boolean backward_status = LOW;
-boolean right_status = LOW;
+int right_speed = 150; // this is the value that will control de PWM of the L298 that will drive the mosfet of the right engine
+int left_speed = 150; // this is the value that will control de PWM of the L298 that will drive the mosfet of the left engine
 
 // Prototypes
 void turnOffDriver(void);
@@ -44,6 +40,9 @@ void setup() {
     pinMode(left_forward[i], OUTPUT);
     pinMode(left_backward[i], OUTPUT);
   }
+  
+  pinMode(right_speed_pin, OUTPUT);
+  pinMode(left_speed_pin, OUTPUT);
 }
 
 void loop() {
@@ -101,9 +100,8 @@ void turnOffDriver(void)
     digitalWrite(left_backward[i], LOW);
   }
 
-  right_velocity = left_velocity = 0;
-
-  analogWrite()
+  analogWrite(right_speed_pin, 0);
+  analogWrite(left_speed_pin, 0);
 }
 
 void moveForward(void)
@@ -115,6 +113,8 @@ void moveForward(void)
     digitalWrite(right_forward[i], HIGH);
     digitalWrite(left_forward[i], HIGH);
   }
+  analogWrite(right_speed_pin, right_speed);
+  analogWrite(left_speed_pin, left_speed);
 }
 
 void moveBackward(void)
@@ -126,6 +126,8 @@ void moveBackward(void)
     digitalWrite(right_backward[i], HIGH);
     digitalWrite(left_backward[i], HIGH);
   }
+  analogWrite(right_speed_pin, right_speed);
+  analogWrite(left_speed_pin, left_speed);
 }
 
 void moveRight(void)
@@ -137,6 +139,8 @@ void moveRight(void)
     digitalWrite(right_backward[i], HIGH);
     digitalWrite(left_forward[i], HIGH);
   }
+  analogWrite(right_speed_pin, right_speed);
+  analogWrite(left_speed_pin, left_speed);
 }
 
 void moveLeft(void)
@@ -148,32 +152,44 @@ void moveLeft(void)
     digitalWrite(right_forward[i], HIGH);
     digitalWrite(left_backward[i], HIGH);
   }
+  analogWrite(right_speed_pin, right_speed);
+  analogWrite(left_speed_pin, left_speed);
 }
 
 void speedUp(void)
 {
-  if (right_velocity >= 250 || left_velocity >= 250)
+  if (right_speed >= 250 || left_speed >= 250)
   {
-    right_velocity = left_velocity = 250;
+    right_speed = left_speed = 250;
   }
   else
   {
-    right_velocity += 50;
-    left_velocity += 50;
+    right_speed += 50;
+    left_speed += 50;
+    
+    Serial.print("speed = ");
+    Serial.println(right_speed);
   }
+  analogWrite(right_speed_pin, right_speed);
+  analogWrite(left_speed_pin, left_speed);
 }
 
 void speedDown(void)
 {
-  if (right_velocity <= 50 || left_velocity <= 250)
+  if (right_speed <= 50 || left_speed <= 50)
   {
-    right_velocity = left_velocity = 50;
+    right_speed = left_speed = 50;
   }
   else
   {
-    right_velocity -= 50;
-    left_velocity -= 50;
+    right_speed -= 50;
+    left_speed -= 50;
+    
+    Serial.print("speed = ");
+    Serial.println(right_speed);
   }
+  analogWrite(right_speed_pin, right_speed);
+  analogWrite(left_speed_pin, left_speed);
 }
 
 void stop(void)
@@ -185,7 +201,8 @@ void stop(void)
     digitalWrite(right_stop[i], HIGH);
     digitalWrite(left_stop[i], HIGH);
   }
-  
+  analogWrite(right_speed_pin, 0);
+  analogWrite(left_speed_pin, 0);
 }
 
 
