@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Roboto:wght@100&@700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #151E3F
+}
+
+:root{
+    --color: #17a2ff;
+}
+
+.contenedor{
+    display: flex;
+    height: 100vh;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btn{
+    position: relative;
+    padding: 20px 0px;
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 5px;
+    text-indent: 5px;
+    z-index: 2;
+    width: 120px;
+}
+
+.stop{
+    position: relative;
+    padding: 20px 0px;
+    text-decoration: none;
+    color: #fff;
+    background-color: red;
+    letter-spacing: 5px;
+    text-indent: 5px;
+    z-index: 2;
+    width: 120px;
+}
+/*-----------boton 2----------*/
+
+.btn-2{
+    border: 3px solid;
+    border-radius: 30px;
+    
+}
+
+.btn-2:hover{
+    background-color: #001a2b;
+    box-shadow: 0 0 20px var(--color);
+    border-color: var(--color);
+}
+
+.btn-2 span:nth-child(n){
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 3px solid;
+    transition: all 0.6s ease;
+}
+
+.btn-2 span:nth-child(1){
+    right: 10%;
+    top: -10px;
+    background-color: #fff;
+}
+
+.btn-2 span:nth-child(2){
+    left: 10%;
+    bottom: -10px;
+}
+
+.btn-2:hover span:nth-child(1){
+    right: 80%;
+    transform: rotate(90deg);
+    color: var(--color);
+    background-color: var(--color);
+    
+}
+
+.btn-2:hover span:nth-child(2){
+    left: 80%;
+    transform: rotate(90deg);
+    color: var(--color);
+}
+
+
+
+.btn-stop{
+    border: 3px solid;
+    border-radius: 30px;
+    
+}
+
+.btn-stop:hover{
+    background-color: #e70e0e;
+    box-shadow: 0 0 20px var(--color);
+    border-color: var(--color);
+}
+
+.btn-stop span:nth-child(n){
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 3px solid;
+    transition: all 0.6s ease;
+}
+
+.btn-stop span:nth-child(1){
+    right: 10%;
+    top: -10px;
+    background-color: #fff;
+}
+
+.btn-stop span:nth-child(2){
+    left: 10%;
+    bottom: -10px;
+}
+
+.btn-stop:hover span:nth-child(1){
+    right: 80%;
+    transform: rotate(90deg);
+    color: var(--color);
+    background-color: var(--color);
+    
+}
+
+.btn-stop:hover span:nth-child(2){
+    left: 80%;
+    transform: rotate(90deg);
+    color: var(--color);
+}
+
+
+/*------------Circle------------*/
+
+.circle{
+    position: relative;
+    padding: 5px 0px;
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 5px;
+    text-indent: 5px;
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: large;
+}
+
+
+/*-----------Speed-Up----------*/
+
+.btn-speed-up::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color:rgb(21, 255, 0);
+    background-size: 300%;
+    border-radius: 5px;
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+.btn-speed-up:hover::after{
+    background-position: 100%;
+    filter: blur(15px);
+}
+
+.btn-speed-up::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color:rgb(64, 255, 0);
+    background-size: 300%;
+    border-radius: 5px;
+    z-index: -1;
+}
+
+.btn-speed-up:hover::before{
+    background-position: 100%;
+}
+
+/*----------------Speed-Down------------*/
+
+.btn-speed-down::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgb(235, 12, 12);
+    background-size: 500%;
+    border-radius: 10px;
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+.btn-speed-down:hover::after{
+    background-position: 100%;
+    filter: blur(15px);
+}
+
+.btn-speed-down::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color:  rgb(255, 91, 15);
+    background-size: 500%;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.btn-speed-down:hover::before{
+    background-position: 100%;
+}

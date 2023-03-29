@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+</head>
+<body>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="contenedor">
+
+            <button type="submit" name="forward" class="btn btn-2" style="margin-bottom: 160px !important">FORWARD
+                <span></span>
+                <span></span>
+            </button>
+
+            <button type="submit" name="right" class="btn btn-2" style="margin-bottom: 0px;position:absolute; right: 570px !important; ">RIGHT
+                <span></span>
+                <span></span>
+            </button>
+
+            <button type="submit" name="left" class="btn btn-2" style="margin-bottom: 0px;position:absolute; right: 850px !important; ">LEFT
+                <span></span>
+                <span></span>
+            </button>
+
+            <button type="submit" name="backward" class="btn btn-2" style="margin-bottom: -160px;position:absolute !important; ">REVERSE
+                <span></span>
+                <span></span>
+            </button>
+
+            <button type="submit" name="stop" class="stop btn-stop" style="margin-bottom: 0px; position:absolute !important; ">STOP
+                <span></span>
+                <span></span>
+            </button>            
+            
+            <button type="submit" name="speed up" class="circle btn-speed-up" style="margin-bottom: 0px; margin-left: 600px;position:absolute !important; ">+
+            </button>  
+
+            <button type="submit" name="speed down" class="circle btn-speed-down" style="margin-bottom: -100px; margin-left: 600px; position:absolute !important; ">-
+            </button>  
+
+        </div>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Control de Robot</title>
+ <style type="text/css">
+  #contenedor{
+   width: 600px;
+   margin: 0 auto;
+   text-align: center;
+  }
+
+  h1{
+   font-size: 28px;
+   margin-top: 50px;
+   margin-bottom: 50px;
+  }
+
+  #botones{
+   margin: 0 auto;
+   display: inline-block;
+  }
+
+  button{
+   padding: 20px;
+   font-size: 20px;
+   background-color: #4CAF50;
+   color: white;
+   border: none;
+   border-radius: 5px;
+  }
+
+  #boton1{
+   margin-right: 20px;
+  }
+ </style>
+</head>
+
+<body>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <br> <br>
+    <div id="contenedor">
+    <h1>Control de Robot</h1>
+    <div id="botones">
+    <button id="boton1" type="submit" name="forward">Mover Adelante</button>
+    <button id="boton2" type="submit" name="backward">Mover Atrás</button>
+    <button id="boton3" type="submit" name="left">Mover Izquierda</button>
+    <button id="boton4" type="submit" name="rigth">Mover Derecha</button>
+    </div>
+    </div>
+</body>
+</html>
