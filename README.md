@@ -5,7 +5,7 @@ This repository contains the code and design files for a robot control system ba
 
 ## Installation
 
-To use this system, you will need a Raspberry Pi and an Arduino board and a controller board wich design is available at:. Clone this repository onto your Raspberry Pi and upload the Arduino code to your Arduino board.
+To use this system, you will need a Raspberry Pi and an Arduino board and a controller board wich design is available at: https://github.com/cgn00/Palmiche-UGV-Board. Clone this repository onto your Raspberry Pi and upload the Arduino code to your Arduino board.
 
 ## Usage
 
